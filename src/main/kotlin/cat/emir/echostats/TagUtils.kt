@@ -8,5 +8,6 @@ class TagUtils {
         fun isTool(type: Material) = Tag.ITEMS_ENCHANTABLE_MINING.isTagged(type)
         fun isWeapon(type: Material) = Tag.ITEMS_ENCHANTABLE_WEAPON.isTagged(type)
         fun isArmor(type: Material) = Tag.ITEMS_ENCHANTABLE_ARMOR.isTagged(type)
+        fun isFish(type: Material) = Tag.ITEMS_FISHES.isTagged(type)
     }
 }

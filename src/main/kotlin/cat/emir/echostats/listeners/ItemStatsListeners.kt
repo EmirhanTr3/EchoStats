@@ -16,6 +16,7 @@ import com.destroystokyo.paper.event.player.PlayerArmorChangeEvent
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.EntityType
+import org.bukkit.entity.Item
 import org.bukkit.entity.LivingEntity
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -101,7 +102,7 @@ class ItemStatsListeners(val plugin: EchoStats) : Listener {
         val entity = event.caught ?: return
 
         event.player.inventory.itemInMainHand.stats.increaseTimesFished(
-            if (entity.type == EntityType.ITEM) TimesFishedStat.Type.ITEM else TimesFishedStat.Type.FISH)
+            if (TagUtils.isFish((entity as Item).itemStack.type)) TimesFishedStat.Type.FISH else TimesFishedStat.Type.ITEM)
     }
 
     val elytraTrackedPlayers = mutableMapOf<UUID, BukkitTask>()
